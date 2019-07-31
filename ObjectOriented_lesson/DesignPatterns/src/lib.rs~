@@ -1,0 +1,19 @@
+/*定义Post并新建一个草案状态的实例*/
+
+// Post 结构体的定义和新建 Post 实例的 new 函数，State trait 和结构体 Draft
+pub struct Post
+{
+    state: Option<Box<dyn State>>,
+    content: String,
+}
+
+impl Post
+{
+    pub fn new() -> Post
+    {
+        Post{
+            state: Some(Box::new(Draft {})),
+            content: String::new(),
+        }
+    }
+}
